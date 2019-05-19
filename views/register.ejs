@@ -1,0 +1,99 @@
+<center>
+	<div id="registerpage" style="background-color:beige;">
+		<h4 style="margin-top:auto;">Register</h4>
+		<div id="errormessagearea" style="background-color:lightblue; color:red; text-align:left;">
+    		<% if (locals.errorMessage != null) { 
+    			errorMessage.forEach(msg => { %><%= msg %><br><% }) %><% } %>
+		</div>
+		<div id="successmessagearea" style="background-color:lightblue;">
+        	<% if (locals.successMessage != null) { %><%= successMessage %><br><% } %>
+		</div>
+		<br>
+		<div>
+			<form action="/register" method="POST">
+				<table>
+					<tr>
+            			<td>Password*</td>
+            			<td><input type="password" name="password" value="<%=user.password%>"></td>
+        			</tr>
+        			<tr>
+            			<td>First Name*</td>
+            			<td><input type="text" name="firstname" value="<%=user.firstname%>"></td>
+        			</tr>
+        			<tr>
+            			<td>Last name*</td>
+            			<td><input type="text" name="lastname" value="<%=user.lastname%>"></td>
+        			</tr>
+        			<tr>
+            			<td>Gender*</td>
+            			<td><select name="gender">
+                    			<% if (user.gender == "M") { %>
+                        			<option value="M" selected>Male</option>
+                    			<% }else{ %>
+                        			<option value="M" >Male</option>
+                    			<% } %>
+                    			<% if(user.gender == "F"){ %>
+                        			<option value="F" selected>Female</option>
+                    			<% } else{%>
+                    				<option value="F">Female</option>
+                    			<% } %>   
+                				</select>
+            			</td>
+        			</tr>
+        			<tr>
+            			<td>Email*</td>
+            			<td><input type="text" name="email" value="<%=user.email%>"></td>
+        			</tr>
+        			<tr>
+            			<td>Phone No*</td>
+            			<td><input type="text" name="phonenum" value="<%=user.phonenum%>"></td>
+        			</tr>
+        			<tr>
+            			<td>User Type*</td>
+            			<td><select name="isadmin">
+            					<% if(user.isAdmin){ %>
+            						<option value=false>Normal</option>
+            						<option value=true selected>Admin</option>
+            					<% }else{ %>
+            						<option value=false selected>Normal</option>
+            						<option value=true>Admin</option>
+            					<% } %>
+                				</select>
+            			</td>
+        			</tr>
+        			<tr>
+            			<td>JLPT</td>
+            			<td>
+                			<% if(skill!=null && skill.includes('n1')) { %>
+                			<input type="checkbox" name="skill" value="n1" checked> N1
+                			<% } else{%>
+                			<input type="checkbox" name="skill" value="n1"> N1
+                			<% } %>        
+                			<% if(skill!=null && skill.includes('n2')) { %>
+                			<input type="checkbox" name="skill" value="n2" checked> N2
+                			<% } else{%>
+                			<input type="checkbox" name="skill" value="n2"> N2
+                			<% } %>
+                			<% if(skill!=null && skill.includes('n3')) { %>
+                			<input type="checkbox" name="skill" value="n3" checked> N3
+                			<% } else{%>
+                			<input type="checkbox" name="skill" value="n3"> N3
+                			<% } %>
+                			<% if(skill!=null && skill.includes('n4')) { %>
+                			<input type="checkbox" name="skill" value="n4" checked> N4
+                			<% } else{%>
+                			<input type="checkbox" name="skill" value="n4"> N4
+                			<% } %>
+                			<% if(skill!=null && skill.includes('n5')) { %>
+                			<input type="checkbox" name="skill" value="n5" checked> N5
+                			<% } else{%>
+                			<input type="checkbox" name="skill" value="n5"> N5
+                			<% } %>
+            			</td>
+        			</tr>
+				</table>
+				<button><a href="/" >Cancel</a></button>&nbsp;&nbsp;&nbsp;<button type="submit">Register</button>&nbsp;&nbsp;&nbsp;<button><a href="/" >Login</a></button>
+			</form>
+		</div>
+	</div>
+</center>

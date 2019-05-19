@@ -1,0 +1,29 @@
+<center>
+	<div id="login" style="background-color:beige;">
+		<div>
+    		<form action="/login" method="POST">
+    			<h3>User Management System</h3>
+        		<table>
+            		<tr>
+                		<td>Login ID</td>
+                		<td>
+                    		<% if (locals.inputid == null) { %><input type="text" name="loginid" ><% }else{ %><input type="text" name="loginid" value="<%=inputid%>"><% } %>
+                		</td>
+            		</tr>
+            		<tr>
+                		<td>Password</td>
+                		<td><input type="password" name="password"></td>
+            		</tr>
+        		</table>
+        		<div id="errormessagearea" style="background-color:red;">
+    				<% if (locals.errorMessage != null) { %>
+        				<%= errorMessage %><br>
+    				<% } %>
+				</div>
+        		<button type="submit">Login</button>
+        		<br/><br/>
+        		<button><a href="/register">Register</a></button>
+    		</form>
+		</div>
+	</div>
+</center>
